@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C04Paragraph.html</title>
+</head>
+<body>
+    <!-- 
+        수평방향에서의 정렬 (★중요★)
+            - 블럭엘리먼트
+             : 컨텐츠의 양에 상관없이 하나의 블럭을 차지하므로 우측공간이 충분하여 컨텐츠는 우측으로 정렬할 수 있다.
+            - 인라인엘리먼트
+             : 컨텐츠의 크기만큼만 영역을 차지하므로 컨텐츠가 움직일 공간이 없어서 정렬이 되지 않는다.
+               만약 정렬이 필요하다면 부모엘리먼트에서 text-align을 설정해야 한다.
+     -->
+    <h2>문단관련 CSS 속성들</h2>
+
+    <div style="border: 1px blue dotted; width: 400px;">
+        <h2>컨텐츠 수평방향 정렬</h2>
+        <!-- 우측정렬 됨 -->
+        <div style="border:1px solid red; text-align: right;">
+            블럭엘리먼트
+        </div>
+
+        <!-- ② 우측 정렬을 하기위해 부모 엘리먼트를 추가한 후, 부모쪽에서 align을 적용했다. -->
+        <!-- <div style="text-align: right;"> -->
+            <!-- ① 우측 공간이 부족하므로 정렬이 안됨. -->
+            <span style="border: 1px solid blue; text-align: right;">
+                인라인엘리먼트
+            </span>
+        <!-- </div> -->
+    </div>
+
+    <!-- 
+        line-height
+         : 줄간격
+           ; 라인사이의 간격을 띄우는데 블럭과 인라인은 조금 다르게 적용된다.
+
+            - 블럭엘리먼트
+            : 컨텐츠의 영역 중 세로 영역이 늘어나서 마치 줄간격이 생긴것 처럼 보인다.
+            - 인라인엘리먼트
+             : 컨텐츠의 영역은 변화가 없고 지정된 크기만큼 줄간격이 생겨서 사이가 벌어진다. 
+     -->
+    <h3>줄사이의 간격</h3>
+    <h4 style="line-height: 5em; border: 1px solid blue;">
+        블럭엘리먼트1에 줄간격 적용
+    </h4>
+    <h4 style="border: 1px solid black;">블럭 엘리먼트2</h4>
+    <h4 style="border: 1px solid black;">블럭 엘리먼트3</h4>
+    
+    <div class="inline">
+        <span style="line-height: 5em; border: 1px solid black;">
+            인라인엘리먼트1
+        </span><br>
+        <span style="border: 1px solid black;">
+            인라인엘리먼트2
+        </span><br>
+        <span style="border: 1px solid black;">
+            인라인엘리먼트3
+        </span>
+    </div>
+
+    <h3>수직상태에서의 가운데 정렬</h3>
+    <!-- 
+        div박스의 height와 line-height의 값을 동일하게 지정하면
+        세로상태에서 가운데 정렬이 된다.
+        블럭엘리먼트에 line-height를 부여했을때 영역이 늘어나는 부분을 활용한 것이다.
+     -->
+    <h4>블럭엘리먼트 사용시 방법1</h4>
+    <div style="border: 1px solid black; height: 200px; width: 200px; line-height: 200px;">
+        나는 텍스트1
+    </div>
+
+    <!-- 
+        div박스 내부의 padding을 지정해서 텍스트를 아래쪽으로 밀어준다.
+        이 경우 세로영역이 padding값만큼 늘어나므로 사이즈는 별도로 조정해야 한다.
+     -->
+    <h4>블럭엘리먼트 사용시 방법2</h4>
+    <div style="border: 1px solid red; height: 100px; width: 200px; padding-top: 80px;">
+        나는 텍스트2
+    </div>
+
+    <!-- 
+        인라인엘리먼트의 경우에는 세로 상태에서의 가운데 정렬은 vertical-align을 사용한다.
+     -->
+    <!-- 
+        가로정렬시 text-align       → left(디폴트), center, right
+        세로정렬시 vertical-align   → top(디폴트), middle, bottom
+     -->
+    <h4>인라인엘리먼트 사용시</h4>
+    <table border="1" width=300>
+        <tr>
+            <td style="height: 100px; vertical-align: top;">
+                인라인엘리먼트 세로정렬
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 100px; vertical-align: middle;">
+                인라인엘리먼트 세로정렬
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 100px; vertical-align: bottom;">
+                인라인엘리먼트 세로정렬
+            </td>
+        </tr>
+    </table>
+    <!-- 
+        text-align: justify;
+         : 각기 다른 길이의 단어를 사용함으로써 발생되는 우측의 불규칙적인 여백을 깔끔하게 정리해주는 역할을 한다.
+     -->
+    <h2>배분정렬</h2>
+    <p style="border:1px solid blue; text-align: justify;">
+        장기화하는 코로나 탓에 처방·조제를 전문으로 하는 문전약국에서도 일반의약품 등의 저가 판매 행위가 발생하고 있어 시장질서 혼란을 우려하는 목소리가 높아지고 있다.
+<br><br>
+최근 일부 지역 약국가는 2년째 이어지는 코로나에 심각한 경영난을 겪으면서 일반의약품 등의 판매가 조정에 나서고 있다. 코로나로 인한 불가피한 생존 전략인 셈이다. 
+<br><br>
+약국가의 일반의약품 저가 판매 논란은 어제오늘 일은 아니다. 
+<br><br>
+일명 ‘비타민 성지’로 불리는 약국이 온라인상에서 퍼지며 논란이 될 정도로 의약품 저가 판매 논란은 약사사회에서 꾸준히 제기돼 온 문제다.
+<br><br>
+문제는 그간 상대적으로 저가 판매행위 논란의 대상이 아니었던 약국에서마저 이 같은 행위가 심심치 않게 나타나고 있다는 점이다. 
+<br><br>
+약국가에 따르면 매약 비율이 낮고 처방과 조제의 비율이 압도적으로 높은 문전약국에서 최근 비타민, 유산균 등의 의약품 ‘저가 판매’ 행위가 발생하고 있어 논란이 되고 있다. 
+<br><br>
+한마디로 상대적으로 저가 판매 영역에 해당하지 않았던 약국가에도 저가 판매 영향이 나타나고 있다는 말이다. 
+<br><br>
+약사들은 지역과 약국 형태를 떠나 저가 판매행위가 만연하게 발생하는 데는 장기화하는 코로 인한 경영난이 원인이라고 입을 모은다. 
+<br><br>
+실제 코로나는 약국들엔 직격탄이 됐다. 약국의 매출을 책임지는 처방전과 매약이 눈에 띄게 감소했고, 언택트 바람 속 건강기능식품 등도 온라인에 뺏기면서 약국가는 역대 최악의 경영난을 맞이할 수밖에 없었다. 
+<br><br>
+코로나 시기에 맞물려 병원을 개원한 약국가의 사정은 더 심각할 수밖에 없다. 
+<br><br>
+이에 마진이 남지 않더라도 환자 한 명이라도 약국으로 유치하기 위해서 불가피한 선택을 할 수밖에 없다는 게 약국가의 설명이다. 
+<br><br>
+경기도에서 문전약국을 운영하는 A약사는 “인근에 약국이 5개가 넘고 시장 쪽 약국까지 더하면 10곳이 넘는다. 문전약국 특성상 저가 판매가 거의 없었는데 코로나로 경영상의 어려움을 겪다 보니 조금이라도 환자 유치를 위해 저가 판매행위를 하고 있다”고 꼬집었다. 
+<br><br>
+그는 “코로나로 병원에서 처방전 확보가 기대만큼 미치지 못하자 어쩔 수 없이 문전약국이 선택하는 방법이 됐다”며 “작년보다 판매가가 전체적으로 낮아졌다고 보면 된다”고 설명했다.
+<br><br>
+또 다른 문전약국 B약사도 “저가 판매가 문제라는 것을 왜 약사가 모르겠나. 하지만 약국이 몰려있는 곳이라면 더 가격 비교가 바로 띈다. 다른 약국이 내리면 우리도 내릴 수밖에 없는 상황이다”고 말했다. 
+<br><br>
+저가 판매행위로 인한 시장질서 혼란에 대한 목소리도 크다. 무리한 가격 정책이 오히려 약국가 전체에 수익 불안정이라는 부작용을 초래할 수 있다는 우려다. 
+<br><br>
+B약사는 “코로나로 인한 경영 부진이 문전약국가에 저가판매 행위를 낳은 것은 사실이다. 하지만 문제가 있다는 것을 약사들도 알고 있다”며 “가격대를 낮추는 게 장기적으로 약국가의 이익이 될지는 약사사회가 고민해야 할 문제”라고 말했다. 
+<br><br>
+이어 “코로나가 언제까지 이어질지 모르는 상황에서 모든 약국의 형태가 저가 판매 형태로 돌아선다면 약국가 전체가 붕괴될 수 있으므로 이에 대한 대책도 필요하지 않을까 싶다”고 전했다.
+    </p>
+
+    <h2>들여쓰기</h2>
+    <!-- 블럭엘리먼트는 공간이 충분하므로 text-indent를 통해 들여쓰기 가능 -->
+    <div style="border: 1px solid red; text-indent: 2em;">
+        블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+        블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+        블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+    </div>
+
+    <!-- ② 인라인엘리먼트에서 들여쓰기를 하려면 부모 엘리먼트를 추가한 후, 부모쪽에서 패딩을 적용해야 한다. -->
+    <div style="border: 1px solid blue; padding-left: 50px;">
+        <span style="text-indent: 1em;">
+         <!-- ① 공간이 부족하므로 정렬이 안됨. -->
+        <!-- <span style="text-indent: 2em;"> -->
+            인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+            인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+            인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+        </span>  
+    </div>
+</body>
+</html>
